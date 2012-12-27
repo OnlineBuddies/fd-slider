@@ -1128,7 +1128,11 @@ var fdSlider = (function() {
                 addEvent(inp, 'change', onInputChange);
             }
 
-            addEvent(inp, "DOMAttrModified", onInputAttributesChange);
+            if( "onpropertychange" in inp ){
+                inp.onpropertychange = onInputAttributesChange;
+            }else{
+                addEvent(inp, "DOMAttrModified", onInputAttributesChange);
+            }
 
             // Add stepUp & stepDown methods to input element if using the html5Shim
             if(html5Shim) {
