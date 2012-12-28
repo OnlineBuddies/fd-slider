@@ -1255,7 +1255,7 @@ var fdSlider = (function() {
         };
     }
 
-    addEvent(window, "load",   init);
+    // addEvent(window, "load",   init);
     addEvent(window, "load",   function() { setTimeout(function() { var slider; for(slider in sliders) { sliders[slider].checkValue(); } }, 0); });
     addEvent(window, "resize", resize);
     addEvent(window, "unload", unload);
